@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mn_dosen_insert"
+        android:title="Insert Nilai Mahasiswa" />
+    <item
+        android:id="@+id/mn_dosen_logout"
+        android:title="Logout" />
+</menu>
