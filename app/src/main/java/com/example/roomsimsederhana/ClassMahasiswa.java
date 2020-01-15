@@ -4,8 +4,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "nilai_mahasiswa")
-public class ClassMahasiswa {
+public class ClassMahasiswa implements Serializable {
     @PrimaryKey(autoGenerate = true)
     int pk_nilai_mhs;
     @ColumnInfo(name = "NRP")
@@ -28,6 +30,14 @@ public class ClassMahasiswa {
     @Override
     public String toString() {
         return NRP+" - "+Nama+" - "+Jurusan+" - "+Nilai;
+    }
+
+    public int getPk_nilai_mhs() {
+        return pk_nilai_mhs;
+    }
+
+    public void setPk_nilai_mhs(int pk_nilai_mhs) {
+        this.pk_nilai_mhs = pk_nilai_mhs;
     }
 
     public String getNRP() {

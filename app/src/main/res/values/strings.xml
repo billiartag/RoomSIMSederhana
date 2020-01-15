@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RoomSIMSederhana</string>
+    <string-array name="list_jurusan">
+        <item>INF</item>
+        <item>DKV</item>
+        <item>SIB</item>
+    </string-array>
 </resources>

@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,6 +55,14 @@ public class Login extends AppCompatActivity {
         }
     }
 
+    private boolean cekDetail(String NRP, String jurusan){
+        if(edJurusan.getText().toString().equalsIgnoreCase(jurusan)&&edNRP.getText().toString().equalsIgnoreCase(NRP)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     private class getNilai extends AsyncTask<mhs,Void,Void>{
 
@@ -63,15 +72,13 @@ public class Login extends AppCompatActivity {
 
             //cek entry
             for (ClassMahasiswa r:list_nilai) {
-                if(r.getNRP()==mhs[0].getNrp()&&r.getJurusan()==mhs[0].getJurusan()){
-                    can_login=true;
+                can_login= cekDetail(r.getNRP()+"", r.getJurusan());
+                if(can_login){
+                    Intent i = new Intent(Login.this, HomeSiswa.class);
+                    i.putExtra("nrp",r.getNRP());
+                    startActivity(i);
                     break;
                 }
-            }
-            if(can_login){
-                Intent i = new Intent(Login.this, HomeDosen.class);
-                i.putExtra("nrp",mhs[0].getNrp());
-                startActivity(i);
             }
             return null;
         }

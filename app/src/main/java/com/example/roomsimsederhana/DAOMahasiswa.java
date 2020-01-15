@@ -13,6 +13,9 @@ public interface DAOMahasiswa {
     @Query("SELECT * FROM nilai_mahasiswa")
     List<ClassMahasiswa> getAllNilai();
 
+    @Query("SELECT * FROM nilai_mahasiswa WHERE NRP=:NRP")
+    ClassMahasiswa getSiswa(String NRP);
+
     @Update
     void updateNilai(ClassMahasiswa... nilai);
     @Insert
